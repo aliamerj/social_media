@@ -1,4 +1,7 @@
+# post controller
 class PostsController < ApplicationController
+  before_action :require_login
+  # initialize new post object and send to view by @post
   def new
     @post = Post.new
   end
@@ -20,7 +23,8 @@ class PostsController < ApplicationController
 
   private
 
-    def post_params
-      params.require(:post).permit(:body)
-    end
+  def post_params
+    params.require(:post).permit(:body)
+  end
 end
+
