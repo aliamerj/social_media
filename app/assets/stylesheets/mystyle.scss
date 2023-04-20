@@ -1,0 +1,195 @@
+$color_1: #222;
+$font-family_1: Verdana, Arial, Tahoma, Serif;
+$background-color_1: #fafafa;
+
+
+.post {
+	width: 960px;
+	margin: 10px auto;
+}
+.post-author {
+	padding: 5px;
+	display: flex;
+	height: 30px;
+	align-items: center;
+}
+.post-body {
+	padding: 5px;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	height: 300px;
+	background-color: $background-color_1;
+	padding: 20px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	span {
+		font-size: 20px;
+		line-height: 1.6;
+		font-style: italic;
+		color: $color_1;
+	}
+}
+.post-actions {
+	padding: 5px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border-top: 1px solid #ccc;
+
+}
+.post-comments {
+	padding: 5px;
+	font-size: 11px;
+}
+.avatar {
+	width: 24px;
+	height: 24px;
+	margin-right: 5px;
+}
+.avatar-1 {
+	background: url('avatars/01.png');
+	background-size: contain;
+}
+.avatar-2 {
+	background: url('avatars/02.png');
+	background-size: contain;
+}
+.avatar-3 {
+	background: url('avatars/03.png');
+	background-size: contain;
+}
+.avatar-4 {
+	background: url('avatars/04.png');
+	background-size: contain;
+}
+.avatar-5 {
+	background: url('avatars/05.png');
+	background-size: contain;
+}
+.avatar-6 {
+	background: url('avatars/06.png');
+	background-size: contain;
+}
+.avatar-7 {
+	background: url('avatars/07.png');
+	background-size: contain;
+}
+.avatar-8 {
+	background: url('avatars/08.png');
+	background-size: contain;
+}
+.avatar-9 {
+	background: url('avatars/09.png');
+	background-size: contain;
+}
+.avatar-10 {
+	background: url('avatars/10.png');
+	background-size: contain;
+}
+.avatar-11 {
+	background: url('avatars/11.png');
+	background-size: contain;
+}
+.avatar-12 {
+	background: url('avatars/12.png');
+	background-size: contain;
+}
+.avatar-13 {
+	background: url('avatars/13.png');
+	background-size: contain;
+}
+.avatar-14 {
+	background: url('avatars/14.png');
+	background-size: contain;
+}
+.avatar-15 {
+	background: url('avatars/15.png');
+	background-size: contain;
+}
+.avatar-16 {
+	background: url('avatars/16.png');
+	background-size: contain;
+}
+.avatar-17 {
+	background: url('avatars/17.png');
+	background-size: contain;
+}
+.avatar-18 {
+	background: url('avatars/18.png');
+	background-size: contain;
+}
+.avatar-19 {
+	background: url('avatars/19.png');
+	background-size: contain;
+}
+.avatar-20 {
+	background: url('avatars/20.png');
+	background-size: contain;
+}
+.avatar-21 {
+	background: url('avatars/21.png');
+	background-size: contain;
+}
+.avatar-22 {
+	background: url('avatars/22.png');
+	background-size: contain;
+}
+.avatar-23 {
+	background: url('avatars/23.png');
+	background-size: contain;
+}
+.avatar-24 {
+	background: url('avatars/24.png');
+	background-size: contain;
+}
+.avatar-25 {
+	background: url('avatars/25.png');
+	background-size: contain;
+}
+.avatar-26 {
+	background: url('avatars/26.png');
+	background-size: contain;
+}
+.avatar-27 {
+	background: url('avatars/27.png');
+	background-size: contain;
+}
+.post-actions-like {
+	width: 24px;
+	height: 24px;
+	background: url('like.png');
+	background-size: contain;
+	display: block;
+}
+.post-actions-unlike {
+	width: 24px;
+	height: 24px;
+	background: url('liked.png');
+	background-size: contain;
+	display: block;
+}
+.post-actions-comments {
+	font-size: 11px;
+	color: $color_1;
+}
+.comment-author {
+	font-weight: bold;
+}
+button {
+	border: none;
+	cursor: pointer;
+}
+.comment-form {
+	margin-bottom: 5px;
+}
+.user-post {
+	display: flex;
+}
+.new-post{
+	z-index: 1;
+	display: flex;
+	justify-content: center;
+}

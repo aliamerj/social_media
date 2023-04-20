@@ -1,6 +1,22 @@
-<%= turbo_frame_tag "post-form" do %>
-  <%= form_with model: @post do |f| %>
-    <%= f.text_field :body %>
-    <%= f.submit :send %>
-  <% end %>
+<%= javascript_include_tag "turbo" %>
+
+<turbo-frame id="post-form">
+  <div class="position-fixed bottom-0 w-100 m-4 p-3" style="z-index: 1;">
+    <%= form_with model: @post, class: "row g-3 d-flex justify-content-center align-items-center", data: { turbo_frame: "post-form" } do |f| %>
+      <div class="col-md-9">
+        <%= f.text_field :body, class: "form-control form-control-lg", placeholder: "Enter your post here", id: "post_input" %>
+      </div>
+      <div class="col-md-2">
+        <%= f.submit :send, class: "btn btn-dark btn-lg" %>
+      </div>
+    <% end %>
+  </div>
+
+<%= javascript_tag do %>
+document.addEventListener("turbo:submit-end", function(event) {
+   const inputField = document.querySelector("#post_input");
+   inputField.value = "";
+});
 <% end %>
+</turbo-frame>
+

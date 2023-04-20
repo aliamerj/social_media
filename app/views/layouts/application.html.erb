@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,21 +8,42 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "mystyle", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= turbo_include_tags %>
+
   </head>
 
-  <body>
-    <div class="nav">
-      <%= turbo_frame_tag "post-form" do %>
-        <%= link_to "New post", new_post_path %>
-      <% end %>
+  <body >
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <%= link_to "Social Media", root_path, class: "navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
-      <% if user_signed_in? %>
-        <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
-      <% else %>
-        <%= link_to "Sign in", new_user_session_path %>
-      <% end %>
+        <ul class="navbar-nav ms-auto">
+          <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-danger" %>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign in", new_user_session_path, class: "btn btn-success" %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
+  </nav>
+  <% if user_signed_in? %>
+      <%= turbo_frame_tag "post-form" do %>
+      <div class="position-fixed bottom-0 end-0 p-3 m-4">
+         <%= link_to "New post", new_post_path, class: "btn btn-dark btn-lg" %>
+      </div>
+      <% end %>
+  <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
