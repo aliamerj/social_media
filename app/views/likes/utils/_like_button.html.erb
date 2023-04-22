@@ -1,0 +1,9 @@
+<% if user_signed_in?  %>
+  <% liked_by_current_user = current_user.likes.where(post_id: post.id).exists? %>
+  <% if liked_by_current_user %>
+    <%= button_to "", post_likes_path(post_id: post.id), method: :delete, class: "post-actions-unlike" %>
+  <% else %>
+    <%= button_to "", post_likes_path(post_id: post.id),method: :post, class: "post-actions-like" %>
+  <% end %>
+<% end %>
+

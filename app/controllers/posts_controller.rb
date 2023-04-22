@@ -2,6 +2,10 @@
 class PostsController < ApplicationController
   before_action :require_login
   # initialize new post object and send to view by @post
+  def index
+    @posts = Post.all
+  end
+
   def new
     @post = Post.new
   end
@@ -16,6 +20,10 @@ class PostsController < ApplicationController
 
     if @post.valid?
       @post.save
+      respond_to do |format|
+        format.html { redirect_to sites_path, notice: 'Post was successfully created.' }
+        format.turbo_stream { flash.now[:notice] = 'Post was successfully created.' }
+      end
     else
       render :new, status: :unprocessable_entity
     end

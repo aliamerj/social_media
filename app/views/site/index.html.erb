@@ -1,5 +1,4 @@
-
-<%# rander the post // the id is for turbo  %>
-<div id="posts">
-  <%= render @posts %>
-</div>
+<%= turbo_frame_tag Post.new%>
+ <%= turbo_frame_tag "posts" do %>
+    <%= render @posts %>
+  <% end %>

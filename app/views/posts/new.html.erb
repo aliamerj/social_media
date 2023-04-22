@@ -1,22 +1,16 @@
-<%= javascript_include_tag "turbo" %>
-
-<turbo-frame id="post-form">
-  <div class="position-fixed bottom-0 w-100 m-4 p-3" style="z-index: 1;">
-    <%= form_with model: @post, class: "row g-3 d-flex justify-content-center align-items-center", data: { turbo_frame: "post-form" } do |f| %>
-      <div class="col-md-9">
-        <%= f.text_field :body, class: "form-control form-control-lg", placeholder: "Enter your post here", id: "post_input" %>
-      </div>
-      <div class="col-md-2">
-        <%= f.submit :send, class: "btn btn-dark btn-lg" %>
-      </div>
-    <% end %>
+<main>
+  <%# This code generates a link with the text "← Back to posts"
+  that when clicked will take the user to the index page
+  for the posts resource. %>
+  <%= link_to sanitize("&larr; Back to posts"), sites_path %>
+  <div>
+    <h1>New post</h1>
   </div>
-
-<%= javascript_tag do %>
-document.addEventListener("turbo:submit-end", function(event) {
-   const inputField = document.querySelector("#post_input");
-   inputField.value = "";
-});
-<% end %>
-</turbo-frame>
-
+  <%# The turbo_frame_tag helper method is used to wrap the post form
+  in a Turbo frame. Turbo frames enable partial updates of a page,
+  which can improve the perceived speed and performance
+  of a web application. %>
+  <%= turbo_frame_tag @post do %>
+    <%= render 'form', post: @post %>
+  <% end %>
+</main>

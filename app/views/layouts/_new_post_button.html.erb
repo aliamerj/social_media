@@ -1,0 +1,7 @@
+ <% if user_signed_in? %>
+      <%= turbo_frame_tag "post-form" do %>
+      <div class="position-fixed bottom-0 end-0 p-3 m-4">
+         <%= link_to "New post", new_post_path, class: "btn btn-dark btn-lg", data: { turbo_frame: dom_id(Post.new) } %>
+      </div>
+      <% end %>
+  <% end %>

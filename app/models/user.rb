@@ -17,6 +17,7 @@ class User < ApplicationRecord
     # In Ruby, the << operator is called the "append" or "concatenate" operator.
     # It is commonly used to add an element to the end of an array or a string.
     likes << Like.new(post: post)
+
   end
   # TODO : add comment!(post)
   # TODO : add follow!(user)
