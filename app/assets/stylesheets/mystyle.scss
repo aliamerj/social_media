@@ -2,6 +2,9 @@ $color_1: #222;
 $font-family_1: Verdana, Arial, Tahoma, Serif;
 $background-color_1: #fafafa;
 
+body{
+	background-color: #eee;
+}
 
 .post {
 	width: 960px;
@@ -48,113 +51,13 @@ $background-color_1: #fafafa;
 	width: 24px;
 	height: 24px;
 	margin-right: 5px;
-}
-.avatar-1 {
-	background: url('avatars/01.png');
 	background-size: contain;
 }
-.avatar-2 {
-	background: url('avatars/02.png');
-	background-size: contain;
-}
-.avatar-3 {
-	background: url('avatars/03.png');
-	background-size: contain;
-}
-.avatar-4 {
-	background: url('avatars/04.png');
-	background-size: contain;
-}
-.avatar-5 {
-	background: url('avatars/05.png');
-	background-size: contain;
-}
-.avatar-6 {
-	background: url('avatars/06.png');
-	background-size: contain;
-}
-.avatar-7 {
-	background: url('avatars/07.png');
-	background-size: contain;
-}
-.avatar-8 {
-	background: url('avatars/08.png');
-	background-size: contain;
-}
-.avatar-9 {
-	background: url('avatars/09.png');
-	background-size: contain;
-}
-.avatar-10 {
-	background: url('avatars/10.png');
-	background-size: contain;
-}
-.avatar-11 {
-	background: url('avatars/11.png');
-	background-size: contain;
-}
-.avatar-12 {
-	background: url('avatars/12.png');
-	background-size: contain;
-}
-.avatar-13 {
-	background: url('avatars/13.png');
-	background-size: contain;
-}
-.avatar-14 {
-	background: url('avatars/14.png');
-	background-size: contain;
-}
-.avatar-15 {
-	background: url('avatars/15.png');
-	background-size: contain;
-}
-.avatar-16 {
-	background: url('avatars/16.png');
-	background-size: contain;
-}
-.avatar-17 {
-	background: url('avatars/17.png');
-	background-size: contain;
-}
-.avatar-18 {
-	background: url('avatars/18.png');
-	background-size: contain;
-}
-.avatar-19 {
-	background: url('avatars/19.png');
-	background-size: contain;
-}
-.avatar-20 {
-	background: url('avatars/20.png');
-	background-size: contain;
-}
-.avatar-21 {
-	background: url('avatars/21.png');
-	background-size: contain;
-}
-.avatar-22 {
-	background: url('avatars/22.png');
-	background-size: contain;
-}
-.avatar-23 {
-	background: url('avatars/23.png');
-	background-size: contain;
-}
-.avatar-24 {
-	background: url('avatars/24.png');
-	background-size: contain;
-}
-.avatar-25 {
-	background: url('avatars/25.png');
-	background-size: contain;
-}
-.avatar-26 {
-	background: url('avatars/26.png');
-	background-size: contain;
-}
-.avatar-27 {
-	background: url('avatars/27.png');
+.avatar-user {
+	width: 35px;
+	height: 35px;
+	margin-right: 10px;
+	margin-left: 10px;
 	background-size: contain;
 }
 .post-actions-like {

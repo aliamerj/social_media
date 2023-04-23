@@ -2,7 +2,7 @@
   <div class="card post">
     <div class="card-header">
       <div class="user-post">
-        <div class="avatar avatar-<%= rand(1..27) %>"></div>
+        <%= image_tag(post.avatar.url, alt: 'avatar',class: "avatar") %>
         <div><%= post.user.username %></div>
       </div>
     </div>

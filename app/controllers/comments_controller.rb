@@ -7,11 +7,7 @@ class CommentsController < ApplicationController
     comment = Comment.new(comment_params)
     comment.post = @post
     comment.user = current_user
-
-    if comment.save
-    else
-      render :new, status: :unprocessable_entity
-    end
+    render :new, status: :unprocessable_entity unless comment.save
   end
 
   private

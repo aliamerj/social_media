@@ -1,0 +1,8 @@
+<% if user_signed_in?  %>
+  <% if current_user.id == owner.id %>
+  <%= link_to 'Edit Profile', edit_user_registration_path , class: "btn btn-warning btn-rounded btn-lg" %>
+  <% else %>
+    <%= button_to "Message now", sites_path ,method: :post, class: "btn btn-primary btn-rounded btn-lg" %>
+  <% end %>
+<% end %>
+
