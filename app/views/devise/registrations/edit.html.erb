@@ -8,7 +8,18 @@
           <%= image_tag(@user.avatar.url, alt: 'avatar', class: "avatar img-circle" , style: "width: 300px;height: 300px" ) %>
           <h6 class="m-3">Select a different Avatar...</h6>
           <hr>
-          <%= render partial:'avatars_list' , locals: { avatars: @avatars } %>
+          <%= form_with model: current_user, url: registration_path(current_user), method: :put, html: { class: "form-horizontal" } do |form| %>
+          <div class="form-group">
+            <% form.label :avatar, class: "col-lg-3 control-label" %>
+            <div class="col-lg-12 mb-2">
+              <% @avatars.each do |avatar| %>
+                <label>
+                  <%= form.radio_button :avatar_id, avatar.id, checked: avatar.id == @user.avatar.id %>
+                  <%= image_tag avatar.url, class: "rounded-circle img-fluid", style: "width: 70px;" %>
+                </label>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -16,7 +27,6 @@
       <div class="col-md-9 personal-info">
 
         <h3>Personal info</h3>
-<%= form_with model: current_user, url: registration_path(current_user), method: :put, html: { class: "form-horizontal" } do |form| %>
   <%= render "devise/shared/error_messages", resource: current_user  %>
     <div class="form-group">
     <%= form.label :name, class: "col-lg-3 control-label" %>

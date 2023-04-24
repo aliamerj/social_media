@@ -7,7 +7,16 @@ class RegistrationsController < Devise::RegistrationsController
 
   def update
     @user = current_user
-    @avatars = Avatar.all
+    avatars =  Avatar.all
+    @avatars = avatars
+
+    avatars.each do |avatar|
+      if avatar.id == params[:user][:avatar_id]
+        @user.avatar = avatar
+        break # exit the loop once the Avatar object is found
+      end
+    end
+
     if @user.valid_password?(params[:user][:current_password])
       if @user.update(user_params)
         redirect_to @user, notice: 'User was successfully updated.'
@@ -16,7 +25,7 @@ class RegistrationsController < Devise::RegistrationsController
         render :edit
       end
     else
-      @user.errors.add(:current_password, "is incorrect")
+      @user.errors.add(:current_password, 'is incorrect')
       render :edit
     end
   end
@@ -25,9 +34,13 @@ class RegistrationsController < Devise::RegistrationsController
 
   def user_params
     if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
-      params.require(:user).permit(:name, :username, :email,:current_password)
+      params.require(:user).permit(:name, :username, :email, :current_password, :avatar_id)
     else
-      params.require(:user).permit(:name, :username, :email, :password, :password_confirmation, :current_password)
+      params.require(:user).permit(:name,  :username,
+                                   :email, :password,
+                                   :password_confirmation,
+                                   :current_password,
+                                   :avatar_id)
     end
   end
 end

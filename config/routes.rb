@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   # define a custom route for the "/users" path
   resources :users, only: %i[index show]
   root 'site#index', as: :sites
+  get "*path", to: "errors#not_found"
 end
