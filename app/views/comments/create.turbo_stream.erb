@@ -1,11 +1,11 @@
-<%= turbo_stream.update "comment-form" do %>
+<%= turbo_stream.update "comment-form-#{@post.id}" do %>
   <%= render partial: "comments/form", locals: { post: @post } %>
 <% end %>
 
-<%= turbo_stream.update "post-comments-list" do %>
+<%= turbo_stream.update "post-comments-list-#{@post.id}" do %>
   <%= render partial: "comments/list", locals: { post: @post } %>
 <% end %>
 
-<%= turbo_stream.update "post-comments-count" do %>
+<%= turbo_stream.update "post-comments-count-#{@post.id}" do %>
   <%= pluralize(@post.comments.count, "comment") %>
 <% end %>
