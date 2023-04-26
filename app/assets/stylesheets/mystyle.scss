@@ -100,7 +100,10 @@ button {
 	font-size: 16px;
 	color: $color_1;
 }
-
+.action-buttons {
+	display: flex;
+	justify-content: space-evenly;
+}
 
 
 

@@ -11,7 +11,17 @@ Rails.application.routes.draw do
   end
   devise_for :users, controllers: { registrations: "registrations" }
   # define a custom route for the "/users" path
-  resources :users, only: %i[index show]
+  resources :users, only: %i[index show] do
+    resources :friendships, only: :create do
+  # we use the collection block to define a set of routes
+  # that operate on the collection of resources as a whole.
+  # In this case, we're defining a delete route
+  # that will operate on all friendships, not just a specific one.
+      collection do
+        delete :destroy
+      end
+    end
+  end
   root 'site#index', as: :sites
   get "*path", to: "errors#not_found"
 end

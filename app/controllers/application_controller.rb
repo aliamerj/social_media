@@ -1,7 +1,9 @@
 # Application Controller
 class ApplicationController < ActionController::Base
+  include FriendshipsHelper
   # include helpers
   include AuthsHelper
+
   before_action :configure_permitted_params, if: :devise_controller?
 
   protected

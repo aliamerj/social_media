@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @followings = Friendship.where(friend_id: @user.id).count
+    @followers = Friendship.where(user_id: @user.id).count
   end
 
   # def edit

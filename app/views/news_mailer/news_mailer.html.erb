@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <h2>A new post has been added!</h2>
+
+  <p>Hi <%= @user.username %>,</p>
+
+  <p>A new post has been added by <%= @post.user.username %>:</p>
+
+  <p><%= @post.body %></p>
+
+  <p>Thanks for using our app!</p>
+</body>
+</html>

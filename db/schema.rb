@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_23_120731) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_26_135401) do
   create_table "avatars", force: :cascade do |t|
     t.string "url"
   end
@@ -23,6 +23,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_23_120731) do
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "friendships", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "friend_id", null: false
+    t.index ["friend_id", "user_id"], name: "index_friendships_on_friend_id_and_user_id", unique: true
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
+    t.index ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id", unique: true
+    t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
   create_table "likes", id: false, force: :cascade do |t|
@@ -58,6 +67,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_23_120731) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "friendships", "users"
+  add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "posts", "users"
   add_foreign_key "users", "avatars"
 end

@@ -14,16 +14,16 @@
                <%= render partial:'action_buttons' , locals: { owner: @user } %>
             <div class="d-flex justify-content-between text-center mt-5 mb-2">
               <div>
-                <p class="mb-2 h5">8471</p>
-                <p class="text-muted mb-0">Followers</p>
+                <p class="mb-2 h5" id="followers-count" ><%= @followers  %></p>
+                <p class="text-muted mb-0"  ><%= 'Follower'.pluralize(@followers) %></p>
               </div>
               <div class="px-3">
                 <p class="mb-2 h5"><%= @user.posts.count %></p>
-                <p class="text-muted mb-0"><%= 'Post'.pluralize(@user.posts.length) %></p>
+                <p class="text-muted mb-0"><%= 'Post'.pluralize(@user.posts.count) %></p>
               </div>
               <div>
-                <p class="mb-2 h5">4751</p>
-                <p class="text-muted mb-0">Following</p>
+                <p class="mb-2 h5" id="followings-count"  ><%= @followings %></p>
+                <p class="text-muted mb-0"><%= 'Following'.pluralize(@followings) %></p>
               </div>
             </div>
           </div>

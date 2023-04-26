@@ -24,6 +24,7 @@ class PostsController < ApplicationController
         format.html { redirect_to sites_path, notice: 'Post was successfully created.' }
         format.turbo_stream { flash.now[:notice] = 'Post was successfully created.' }
       end
+      send_notification_to_friends(current_user, @post)
     else
       render :new, status: :unprocessable_entity
     end
