@@ -1,9 +1,9 @@
-<%= turbo_stream.update "follow-user" do %>
+<%= turbo_stream.update "follow-user-#{@user.id}" do %>
   <%= render partial: "friendships/utils/follow_buttons", locals: { user: @user} %>
 <% end %>
-<%= turbo_stream.update "followers-count" do %>
-<%= @followers %>
+<%= turbo_stream.update "followers-count-#{@user.id}" do %>
+<%= @user.followers_count %>
 <% end %>
-<%= turbo_stream.update "followings-count" do %>
-<%=  @followings %>
+<%= turbo_stream.update "followings-count-#{@user.id}" do %>
+<%=  @user.followings_count %>
 <% end %>

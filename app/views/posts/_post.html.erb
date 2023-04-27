@@ -8,6 +8,9 @@
     </div>
     <div class="card-body">
       <h5 class="card-title"><%= post.body %></h5>
+      <div class="post-image">
+      <%= image_tag post.image, class: "img-fluid mw-100" if post.image.attached? %>
+      </div>
 
       <div class="post-actions">
 

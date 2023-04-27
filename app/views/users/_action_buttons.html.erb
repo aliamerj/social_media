@@ -1,13 +1,12 @@
 <% if user_signed_in?  %>
-  <% if current_user.id == owner.id %>
+  <% if current_user.id == user.id %>
   <%= link_to 'Edit Profile', edit_user_registration_path , class: "btn btn-warning btn-rounded btn-lg" %>
   <% else %>
     <div class="action-buttons">
     <%= button_to "Message", sites_path ,method: :post, class: "btn btn-primary btn-rounded btn-lg" %>
-     <div  id="follow-user">
-        <%= render partial: "friendships/utils/follow_buttons", locals: { user: owner} %>
+     <div  id="follow-user-<%= user.id %>">
+        <%= render partial: "friendships/utils/follow_buttons", locals: { user: user} %>
      </div>
     </div>
   <% end %>
 <% end %>
-

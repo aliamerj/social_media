@@ -1,19 +1,22 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <%= link_to "Social Media", sites_path, class: "navbar-brand" %>
+        <%= link_to "Social Media", sites_path, class: "navbar-brand" %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <ul class="navbar-nav ms-auto">
+          <li class="nav-item me-5">
+              <%= link_to "Members", users_path, class: "btn btn-primary" %>
+          </li>
           <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-danger" %>
             <%= link_to user_path(current_user) do %>
-                <%= image_tag(current_user.avatar.url, alt: 'avatar', class: "avatar-user") %>
-          <% end %>
+              <%= image_tag(current_user.avatar.url, alt: 'avatar', class: "avatar-user") %>
+            <% end %>
           </li>
           <% else %>
           <li class="nav-item">
@@ -25,3 +28,6 @@
     </div>
   </nav>
 </header>
+
+
+

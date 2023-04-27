@@ -19,7 +19,8 @@ class User < ApplicationRecord
   # in the Friendship model, which is a join table between
   # two instances of the User model.
   # This allows you to access the friends of a user through the Friendship model.
-  has_many :users, through: :friendships, source: :friend
+  has_many :followers, through: :friendships, source: :user
+  has_many :followings, through: :friendships, source: :friend
 
   # The "!" is a convention used to indicate that
   # the method will modify the object it's called on.
@@ -31,13 +32,20 @@ class User < ApplicationRecord
   end
 
 
-  # Define a helper method to add a friend
-  def add_friend!(user)
-    Friendship.create(user: self, friend: user)
+  # Define a helper method to follow
+  def follow!(user)
+    Friendship.create(user: user, friend: self)
   end
 
-  # Define a helper method to remove a friend
-  def remove_friend!(user)
-    Friendship.where(user: self, friend: user).delete_all
+  # Define a helper method to unfollow
+  def unfollow!(user)
+    Friendship.where(user: user, friend: self).delete_all
+  end
+
+  def followers_count
+    Friendship.where(user_id: self.id).count
+  end
+  def followings_count
+    Friendship.where(friend_id: self.id).count
   end
 end

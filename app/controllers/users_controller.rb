@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @followings = Friendship.where(friend_id: @user.id).count
-    @followers = Friendship.where(user_id: @user.id).count
   end
+  def index
+    @users = user_signed_in? ? User.all.where.not(id: current_user.id) :  User.all
+  end
+
 
   # def edit
   #   @user = current_user

@@ -1,5 +1,5 @@
 <% if user_signed_in?  %>
-  <% if current_user.friendships.where(friend_id: user.id).exists? %>
+  <% if user.friendships.where(friend_id: current_user.id).exists? %>
     <%= button_to "Unfollow", user_friendships_path(user_id: current_user.id, friend_id: user.id), method: :delete, class: "btn btn-danger btn-rounded btn-lg" %>
   <% else %>
     <%= button_to "Follow", user_friendships_path(user_id: current_user.id, friend_id: user.id),method: :post, class: "btn btn-success btn-rounded btn-lg" %>
