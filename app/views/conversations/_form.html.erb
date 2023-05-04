@@ -1,0 +1,29 @@
+<%= javascript_include_tag "turbo" %>
+<div class="position-fixed bottom-0 w-100 m-4 p-3" id="my-form" style="z-index: 1;">
+    <%= form_with model: post, class: "row g-3 d-flex justify-content-center align-items-center", multipart: true, local: true do |f| %>
+    <div class="col-md-9">
+        <%= f.text_field :body,input_html: {autofocus: true }, class: "form-control form-control-lg", placeholder: "Enter your post here", id: "post_input" %>
+        <%= f.file_field :image, class: "form-control", style: "margin-top: 10px" %>
+      </div>
+      <div class="col-md-2">
+        <%= f.submit :send, class: "btn btn-dark btn-lg" %>
+      </div>
+    <%# ! cancel like that take user back %>
+    <%= link_to "Cancel", sites_path, style:"display:none" , id: "cancel-post" %>
+    <% end %>
+</div>
+<%= javascript_tag do %>
+document.addEventListener("turbo:submit-end", function(event) {
+   const inputField = document.querySelector("#post_input");
+   inputField.value = "";
+});
+
+
+
+document.addEventListener("click", (event) => {
+const inputField = document.querySelector("#my-form");
+  if (!inputField.contains(event.target)) {
+   document.querySelector("#cancel-post").click()
+  }
+});
+<% end %>

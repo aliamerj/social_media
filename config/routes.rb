@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     end
   end
   devise_for :users, controllers: { registrations: "registrations" }
+  resources :conversations do
+    resources :messages
+  end
   # define a custom route for the "/users" path
   resources :users, only: %i[index show] do
     resources :friendships, only: :create do

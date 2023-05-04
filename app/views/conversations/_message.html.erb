@@ -1,0 +1,19 @@
+<% messages.each do |message| %>
+<% if current_user.id != message.sender.id %>
+      <div class="d-flex flex-row justify-content-start">
+         <%= image_tag(message.sender.avatar.url, alt: 'avatar', class: "avatar-user") %>
+              <div>
+                <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;"><%= message.body %> </p>
+              </div>
+        </div>
+<% else %>
+    <div class="d-flex flex-row justify-content-end mb-4 pt-1">
+        <div>
+            <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary"><%= message.body%></p>
+        </div>
+         <%= image_tag(message.sender.avatar.url, alt: 'avatar', class: "avatar-user") %>
+    </div>
+<% end %>
+
+<% end %>
+
