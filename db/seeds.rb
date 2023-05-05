@@ -6,5 +6,5 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-#Avatar.create(url: '/assets/avatars/01.png')
-#28.times { |i| Avatar.create(url: "/assets/avatars/#{i}.png") unless i.zero? }
+# Avatar.create(url: '/assets/avatars/01.png')
+28.times { |i| Avatar.create(url: "/assets/avatars/#{i}.png") unless i.zero? }

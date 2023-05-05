@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_04_170733) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_05_190535) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -60,7 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_04_170733) do
     t.index ["sender_id"], name: "index_conversations_on_sender_id"
   end
 
-  create_table "friendships", id: false, force: :cascade do |t|
+  create_table "friendships", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "friend_id", null: false
     t.index ["friend_id", "user_id"], name: "index_friendships_on_friend_id_and_user_id", unique: true
@@ -103,7 +103,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_04_170733) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
-    t.integer "avatar_id", default: 57, null: false
+    t.integer "avatar_id", default: 1, null: false
     t.string "name", default: "Ali", null: false
     t.index ["avatar_id"], name: "index_users_on_avatar_id"
     t.index ["email"], name: "index_users_on_email", unique: true
