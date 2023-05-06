@@ -3,15 +3,13 @@
   <head>
     <title>Instaclone</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= turbo_include_tags %>
+    <%= javascript_importmap_tags %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "mystyle", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-    <%= turbo_include_tags %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%= javascript_include_tag 'bootstrap' %>
   </head>
 
   <body >

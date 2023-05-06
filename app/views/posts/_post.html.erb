@@ -1,35 +1,45 @@
 <%= turbo_frame_tag post do %>
-  <div class="card post">
-    <div class="card-header">
-      <div class="user-post">
-        <%= image_tag(post.avatar.url, alt: 'avatar',class: "avatar") %>
-        <div><%= post.user.username %></div>
+<div class="card post">
+  <div class="card-header">
+    <div class="user-post">
+      <%= image_tag(post.avatar.url, alt: 'avatar',class: "avatar") %>
+      <div><%= post.user.username %></div>
+    </div>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= post.body %></h5>
+    <div class="post-image">
+      <%= image_tag post.image, class: "img-fluid mw-100" if
+      post.image.attached? %>
+    </div>
+
+    <div class="post-actions">
+      <div class="post-actions-buttons" id="likes-post-<%= post.id %>">
+        <%= render partial: "likes/utils/like_button", locals: { post: post} %>
+      </div>
+      <div class="post-actions-counts">
+        <div class="post-actions-likes" id="likes-post-count-<%= post.id %>">
+          <%= pluralize(post.likes.count, "Like") %>
+        </div>
+  <div
+          class="post-actions-comments"
+          id="post-comments-count-<%= post.id %>"
+        >
+          <%= pluralize(post.comments.count, "comment") %>
+        </div>
       </div>
     </div>
-    <div class="card-body">
-      <h5 class="card-title"><%= post.body %></h5>
-      <div class="post-image">
-      <%= image_tag post.image, class: "img-fluid mw-100" if post.image.attached? %>
+
+    <div class="post-comments">
+      <% if user_signed_in? %>
+      <div id="comment-form-<%= post.id %>">
+        <%= render partial: "comments/form", locals: { post: post } %>
       </div>
-
-      <div class="post-actions">
-
-    <div class="post-actions-buttons" id="likes-post-<%= post.id %>"><%= render partial: "likes/utils/like_button", locals: { post: post} %></div>
-        <div class="post-actions-counts">
-          <div class="post-actions-likes" id="likes-post-count-<%= post.id %>" ><%= pluralize(post.likes.count, "Like") %></div>
-          <div class="post-actions-comments" id="post-comments-count-<%= post.id %>"><%= pluralize(post.comments.count, "comment") %></div>
-        </div>
-
-      </div>
-
-      <div class="post-comments">
-        <% if user_signed_in? %>
-          <div id="comment-form-<%= post.id %>"><%= render partial: "comments/form", locals: { post: post } %></div>
-        <% end %>
-        <div id="post-comments-list-<%= post.id %>">
-          <%= render partial: "comments/list", locals: { post: post } %>
-        </div>
+      <% end %>
+      <div id="post-comments-list-<%= post.id %>">
+        <%= render partial: "comments/list", locals: { post: post } %>
       </div>
     </div>
   </div>
+</div>
 <% end %>

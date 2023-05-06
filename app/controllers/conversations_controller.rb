@@ -8,27 +8,30 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    @conversation = Conversation.between(current_user, receiver_params)
+    @conversation = Conversation.between(current_user.id, params[:receiver])
     @messages = Message.where(conversation_id: @conversation.id)
   end
 
   def create
-    @conversation = Conversation.between(current_user, receiver_params)
+    @conversation = Conversation.between(current_user.id, receiver_params)
+
     unless @conversation.present?
       @conversation = Conversation.create(sender_id: current_user.id, receiver_id: receiver_params)
     end
-    redirect_to @conversation
+    redirect_to conversation_path(id: @conversation, receiver: receiver_params)
   end
 
   private
+
+
+  def initialize_new_conversation
+    return if Conversation.between(current_user.id, params[:receiver]).present?
+
+    redirect_to user_path(params[:receiver])
+  end
 
   def receiver_params
     params.require(:id)
   end
 
-  def initialize_new_conversation
-    return if Conversation.between(current_user, receiver_params).present?
-
-    redirect_to user_path(receiver_params)
-  end
 end

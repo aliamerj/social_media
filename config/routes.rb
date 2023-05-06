@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     end
   end
   root 'site#index', as: :sites
-  get "*path", to: "errors#not_found", constraints: lambda { |req|
-  !req.path.start_with?("/rails/active_storage")
-}
+#   get "*path", to: "errors#not_found", constraints: lambda { |req|
+#   !req.path.start_with?("/rails/active_storage")
+# }
 end

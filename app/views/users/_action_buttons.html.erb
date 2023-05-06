@@ -3,7 +3,7 @@
   <%= link_to 'Edit Profile', edit_user_registration_path , class: "btn btn-warning btn-rounded btn-lg" %>
   <% else %>
     <div class="action-buttons">
-    <%= button_to "Message", conversations_path(receiver_id: user.id) ,method: :post, class: "btn btn-primary btn-rounded btn-lg" %>
+    <%= button_to "Message", conversations_path(id: user.id) ,method: :post, class: "btn btn-primary btn-rounded btn-lg" %>
      <div  id="follow-user-<%= user.id %>">
         <%= render partial: "friendships/utils/follow_buttons", locals: { user: user} %>
      </div>

@@ -2,151 +2,146 @@ $color_1: #222;
 $font-family_1: Verdana, Arial, Tahoma, Serif;
 $background-color_1: #fafafa;
 
-body{
-	background-color: #eee;
+body {
+  background-color: #eee;
 }
 
 .post {
-	width: 960px;
-	margin: 10px auto;
+  width: 960px;
+  margin: 10px auto;
 }
 .post-author {
-	padding: 5px;
-	display: flex;
-	height: 30px;
-	align-items: center;
+  padding: 5px;
+  display: flex;
+  height: 30px;
+  align-items: center;
 }
 .post-body {
-	padding: 5px;
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	align-items: center;
-	height: 300px;
-	background-color: $background-color_1;
-	padding: 20px;
-	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
-	span {
-		font-size: 20px;
-		line-height: 1.6;
-		font-style: italic;
-		color: $color_1;
-	}
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 300px;
+  background-color: $background-color_1;
+  padding: 20px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  span {
+    font-size: 20px;
+    line-height: 1.6;
+    font-style: italic;
+    color: $color_1;
+  }
 }
 .post-actions {
-	padding: 5px;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	border-top: 1px solid #ccc;
-
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ccc;
 }
 .post-comments {
-	padding: 5px;
-	font-size: 11px;
+  padding: 5px;
+  font-size: 11px;
 }
 .avatar {
-	width: 24px;
-	height: 24px;
-	margin-right: 5px;
-	background-size: contain;
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+  background-size: contain;
 }
 .avatar-user {
-	width: 35px;
-	height: 35px;
-	margin-right: 10px;
-	margin-left: 10px;
-	background-size: contain;
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  margin-left: 10px;
+  background-size: contain;
 }
 .post-actions-like {
-	width: 24px;
-	height: 24px;
-	background: url('like.png');
-	background-size: contain;
-	display: block;
+  width: 24px;
+  height: 24px;
+  background: url("like.png");
+  background-size: contain;
+  display: block;
 }
 .post-actions-unlike {
-	width: 24px;
-	height: 24px;
-	background: url('liked.png');
-	background-size: contain;
-	display: block;
+  width: 24px;
+  height: 24px;
+  background: url("liked.png");
+  background-size: contain;
+  display: block;
 }
 .post-actions-comments {
-	font-size: 12px;
-	color: $color_1;
+  font-size: 12px;
+  color: $color_1;
 }
 .comment-author {
-	font-weight: bold;
+  font-weight: bold;
 }
 button {
-	border: none;
-	cursor: pointer;
+  border: none;
+  cursor: pointer;
 }
 .comment-form {
-	margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 .user-post {
-	display: flex;
+  display: flex;
 }
-.new-post{
-	z-index: 1;
-	display: flex;
-	justify-content: center;
+.new-post {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
 }
 .post-actions-likes {
-	font-size: 16px;
-	color: $color_1;
+  font-size: 16px;
+  color: $color_1;
 }
 .action-buttons {
-	display: flex;
-	justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 
-
-
-
-
 .flash {
-	position:fixed;
-	top: 5rem;
-	left: 50%;
-	transform: translateX(-50%);
+  position: fixed;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
 
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: var(--space-s);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-s);
 
-	max-width: 100%;
-	width: max-content;
-	padding: 0 var(--space-m);
+  max-width: 100%;
+  width: max-content;
+  padding: 0 var(--space-m);
 
-	&__message {
-	  font-size: var(--font-size-s);
-	  color: var(--color-white);
-	  padding: var(--space-xs) var(--space-m);
-	  background-color: var(--color-dark);
-	  animation: appear-then-fade 4s both;
-	  border-radius: 999px;
-	}
+  &__message {
+    font-size: var(--font-size-s);
+    color: var(--color-white);
+    padding: var(--space-xs) var(--space-m);
+    background-color: var(--color-dark);
+    animation: appear-then-fade 4s both;
+    border-radius: 999px;
   }
+}
 
-  #chat2 .form-control {
-	border-color: transparent;
-	}
+#chat2 .form-control {
+  border-color: transparent;
+}
 
-	#chat2 .form-control:focus {
-	border-color: transparent;
-	box-shadow: inset 0px 0px 0px 1px transparent;
-	}
+#chat2 .form-control:focus {
+  border-color: transparent;
+  box-shadow: inset 0px 0px 0px 1px transparent;
+}
 
-	.divider:after,
-	.divider:before {
-	content: "";
-	flex: 1;
-	height: 1px;
-	background: #eee;
-	}
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
