@@ -5,8 +5,8 @@ class Post < ApplicationRecord
   end
   belongs_to :user
   validates :body, presence: true,
-                   length: { maximum: 500, minimum: 5 }
+                   length: { maximum: 500, minimum: 1 }
   has_many :comments, dependent: :destroy
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_one :avatar, through: :user
 end

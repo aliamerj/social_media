@@ -1,4 +1,11 @@
 <%= turbo_frame_tag Post.new%>
  <%= turbo_frame_tag "posts" do %>
+   <% if @posts.empty? %>
+     <div class="container mt-5" id="no-post">
+        <h1 class="text-center">No posts yet</h1>
+        <p class="text-center">You can add a new post using the form below:</p>
+     </div>
+  <% else %>
     <%= render @posts %>
+  <% end %>
   <% end %>

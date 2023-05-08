@@ -16,6 +16,8 @@
 document.addEventListener("turbo:submit-end", function(event) {
    const inputField = document.querySelector("#post_input");
    inputField.value = "";
+   const noPost = document.querySelector("#no-post");
+   noPost.style.display = "none";
 });
 
 

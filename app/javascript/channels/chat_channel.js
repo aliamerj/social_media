@@ -47,16 +47,14 @@ const initialChatChannel = (conversation_id) =>
     }
   );
 
-const conversationPath = window.location.pathname
+const currentPath = window.location.pathname
   .split("/")
   .filter((str) => str !== "");
 
-const getConversationId = Number(conversationPath[1][0]);
+const currentUser = document.getElementById("chat-container");
+const currentUserId = currentUser?.getAttribute("data-current-user-id");
 
-if (conversationPath[0] === "conversations" && getConversationId) {
-  initialChatChannel(getConversationId);
+// make sure that we are on conversation page and we have a conversation id
+if (currentPath[0] === "conversations" && Number(currentPath[1][0])) {
+  initialChatChannel(Number(currentPath[1][0]));
 }
-
-const currentUserId = document
-  .getElementById("chat-container")
-  .getAttribute("data-current-user-id");

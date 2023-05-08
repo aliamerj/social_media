@@ -1,4 +1,16 @@
 
+<% if @users.empty?  %>
+ <% if user_signed_in? %>
+  <div class="container mt-5">
+    <h1 class="text-center fw-bold text-primary">No other members registered</h1>
+  </div>
+<% else %>
+  <div class="container mt-5">
+    <h1 class="text-center fw-bold text-primary">No members registered yet</h1>
+  </div>
+<% end %>
+<% end %>
+
 <section class="vh-100">
   <div class="container py-5 h-100">
    <h2 class="text-center mb-5" style="font-size: 3rem;">Meet our community members</h2>

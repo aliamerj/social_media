@@ -4,6 +4,6 @@ class SiteController < ApplicationController
   # TODO: only for user show the post otherwise show landing page
   def index
     # send the post form db to view by @posts
-    @posts = Post.all
+    @posts = Post.order(created_at: :desc)
   end
 end
